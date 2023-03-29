@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head data-th-fragment="head">
+    <title>Spring Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"
+          data-th-href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"
+          data-th-href="@{/webjars/bootstrap-icons/1.10.3/font/bootstrap-icons.css}" />
+</head>
+<body>
+<div data-th-fragment="defer">
+<script type="text/javascript" src="jquery.min.js"
+    data-th-src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>
+<script type="text/javascript" src=""
+    data-th-src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</div>
+<div data-th-fragment="error"
+     data-th-if="${errorModel}" role="alert"
+     class="alert alert-danger alert-dismissible fade show">
+    <div class="d-flex align-items-center">
+        <i class="bi-exclamation-triangle-fill" style="font-size: 2rem;"></i>
+        <h4 class="alert-heading" data-th-text="#{error.title}"></h4>
+    </div>
+    <p data-th-text="${errorModel.message}"></p>
+    <p data-th-text="${errorModel.className}"></p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="Close"></button>
+</div>
+<div data-th-fragment="validateError"
+     data-th-if="${#fields.hasErrors('*')}" role="alert"
+     class="alert alert-danger alert-dismissible fade show">
+    <div class="d-flex align-items-center">
+        <i class="bi-exclamation-triangle-fill" style="font-size: 2rem;"></i>
+        <h4 class="alert-heading" data-th-text="#{error.validate}"></h4>
+    </div>
+    <ul>
+        <li data-th-each="err : ${#fields.errors('*')}"
+            data-th-text="${err}">Input is incorrect</li>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="Close"></button>
+</div>
+</body>
+</html>

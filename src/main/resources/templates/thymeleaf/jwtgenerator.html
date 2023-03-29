@@ -1,0 +1,74 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head data-th-replace="~{common :: head}">
+<body>
+<div class="container">
+    <h1>JWT Generator</h1>
+    <form action="#" data-th-action="@{/jwtgenerator}" method="POST"
+        data-th-object="${jwtModel}">
+        <div class="mb-3 row">
+            <label for="subject" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.subject}">Subject</label>
+            <div class="col-sm-10">
+                <input id="subject" data-th-field="*{subject}" type="text"
+                       data-th-class="'form-control' + (${#fields.hasErrors('subject')}? ' is-invalid' : '')">
+                <div id="subjectInvalid" class="invalid-feedback"
+                    data-th-errors="*{subject}">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="issuedTime" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.issuedTime}">Issued Time</label>
+            <div class="col-sm-10">
+                <input id="issuedTime" data-th-field="*{issuedTime}" type="text"
+                       placeholder="yyyy-MM-dd 00:00:00"
+                       data-th-class="'form-control' + (${#fields.hasErrors('issuedTime')}? ' is-invalid' : '')">
+                <div id="issuedTimeInvalid" class="invalid-feedback"
+                     data-th-errors="*{issuedTime}">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="duration" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.duration}">Duration</label>
+            <div class="col-sm-10">
+                <input id="duration" data-th-field="*{duration}" type="text"
+                       placeholder="PnDTnHnMn.nS"
+                       data-th-class="'form-control' + (${#fields.hasErrors('duration')}? ' is-invalid' : '')">
+                <div id="durantionInvalid" class="invalid-feedback"
+                     data-th-errors="*{duration}">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="scope" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.scope}">Scope</label>
+            <div class="col-sm-10">
+                <input id="scope" data-th-field="*{scope}" type="text"
+                       data-th-class="'form-control' + (${#fields.hasErrors('scope')}? ' is-invalid' : '')">
+                <div id="scopeInvalid" class="invalid-feedback"
+                     data-th-errors="*{scope}">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary"
+                        data-th-text="#{command.generate}">Generate</button>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="jwt" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.jwt}">JWT</label>
+            <div class="col-sm-10">
+                <textarea id="jwt" rows="5" class="form-control"
+                          readonly="readonly" data-th-text="${jwt}">
+                </textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div data-th-replace="~{common :: defer}"></div>
+</body>
+</html>

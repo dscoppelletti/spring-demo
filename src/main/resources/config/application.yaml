@@ -1,0 +1,37 @@
+# http://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+logging:
+  config: classpath:config/logback.xml
+spring:
+  application:
+    name: spring-demo
+  main:
+    banner-mode: off
+    web-application-type: reactive
+  messages:
+    basename: messages/messages
+    cache-duration: -1
+    encoding: UTF-8
+    fallback-to-system-locale: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:jwt/publicKey.pem
+  web:
+    locale: en_UK
+    locale-resolver: accept-header
+  webflux:
+    base-path: spring-demo
+    format:
+      date: dd/MM/yyyy
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm:ss
+  thymeleaf:
+    mode: html
+    prefix: classpath:/templates/thymeleaf/
+it:
+  scoppelletti:
+    spring-demo:
+      security:
+        jwt:
+          private-key-location: classpath:/jwt/privateKey.p8

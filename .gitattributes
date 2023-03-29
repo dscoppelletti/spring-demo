@@ -1,0 +1,6 @@
+# Files attributes
+*.jar binary
+*.p8 binary
+.gitignore export-ignore
+.gitattributes export-ignore
+

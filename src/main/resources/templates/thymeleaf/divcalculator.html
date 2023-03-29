@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head data-th-replace="~{common :: head}">
+<body>
+<div class="container">
+    <h1>Division calculator</h1>
+    <div data-th-replace="~{common :: error}"></div>
+    <form action="#" data-th-action="@{/divcalculator}" method="POST"
+        data-th-object="${divModel}">
+        <div data-th-replace="~{common :: validateError}"></div>
+        <div class="mb-3 row">
+            <label for="Numerator" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.numerator}">Numerator</label>
+            <div class="col-sm-10">
+                <input id="numerator" data-th-field="*{numerator}" type="text"
+                       data-th-class="'form-control' + (${#fields.hasErrors('numerator')}? ' is-invalid' : '')">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="denominator" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.denominator}">Denominator</label>
+            <div class="col-sm-10">
+                <input id="denominator" data-th-field="*{denominator}" type="text"
+                       data-th-class="'form-control' + (${#fields.hasErrors('denominator')}? ' is-invalid' : '')">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary"
+                        data-th-text="#{command.divide}">Divide</button>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="result" class="col-sm-2 col-form-label"
+                   data-th-text="#{label.result}">Result</label>
+            <div class="col-sm-10">
+                <input id="result" class="form-control" type="text"
+                       readonly="readonly" data-th-value="${result}">
+            </div>
+        </div>
+    </form>
+</div>
+<div data-th-replace="~{common :: defer}"></div>
+</body>
+</html>

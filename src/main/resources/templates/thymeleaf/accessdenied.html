@@ -1,0 +1,13 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head data-th-replace="~{common :: head}">
+<body>
+<div class="container">
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi-exclamation-triangle-fill" style="font-size: 2rem;"></i>
+        <h4 class="alert-heading" data-th-text="#{error.accessdenied}"></h4>
+    </div>
+</div>
+<div data-th-replace="~{common :: defer}"></div>
+</body>
+</html>
