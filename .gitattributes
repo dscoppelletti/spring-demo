@@ -3,4 +3,7 @@
 *.p8 binary
 .gitignore export-ignore
 .gitattributes export-ignore
+src/main/resources/jwt/publicKey.pem filter=git-crypt diff=git-crypt
+src/main/resources/jwt/privateKey.p8 filter=git-crypt diff=git-crypt
+src/main/resources/jwt/rsaPrivateKey.pem filter=git-crypt diff=git-crypt
 
