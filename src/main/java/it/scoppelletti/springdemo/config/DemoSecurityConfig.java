@@ -44,6 +44,9 @@ public class DemoSecurityConfig {
                         .pathMatchers("/api/private/**").authenticated()
                         .pathMatchers("/private/**").authenticated()
                         .anyExchange().permitAll())
+// Avoid "An expected CSRF token cannot be found
+// http://docs.spring.io/spring-security/site/docs/5.2.5.RELEASE/reference/html/protection-against-exploits-2.html
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .exceptionHandling()
                     .authenticationEntryPoint(new AuthenticationEntryPoint())
 //                    .accessDeniedHandler(new AccessDeniedHandler())

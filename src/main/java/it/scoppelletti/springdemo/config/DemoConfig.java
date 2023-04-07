@@ -1,11 +1,15 @@
 package it.scoppelletti.springdemo.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.config.WebFluxConfigurer;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
-// No ThymeLeaf ViewResolver with the following!
-// @EnableWebFlux
-public class DemoConfig implements WebFluxConfigurer {
-    // No Thymeleaf ViewResolver if extends WebFluxConfigurationSupport!
+public class DemoConfig {
+
+    @Bean
+    public LocalValidatorFactoryBean validator() {
+        // http://docs.spring.io/spring-framework/docs/current/reference/html/core.html#validation-beanvalidation-spring
+        return new LocalValidatorFactoryBean();
+    }
 }

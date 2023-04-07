@@ -31,7 +31,7 @@ public class ApiHandler {
     public Mono<ServerResponse> hellodmin(ServerRequest req) {
         // < HTTP/1.1 403 Forbidden
         // < WWW-Authenticate: Bearer error="insufficient_scope",
-        // error_description="The request requires higheprivileges than
+        // error_description="The request requires higher privileges than
         // provided by the access token.",
         // error_uri="https://tools.ietf.org/html/rfc6750#section-3.1"
         Mono<String> greetings = req.principal()

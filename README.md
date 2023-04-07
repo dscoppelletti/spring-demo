@@ -6,4 +6,5 @@ Spring Demo
 * [Thymeleaf Examples: Spring Thyme Seedstarter Manager (REACTIVE version)](http://github.com/thymeleaf/thymeleafsandbox-stsm-reactive)
 * [Displaying Error Messages with Thymeleaf in Spring](http://www.baeldung.com/spring-thymeleaf-error-messages)
 * [Spring Security OAuth2 Resource Server](http://docs.spring.io/spring-security/reference/reactive/oauth2/resource-server/index.html)
+* [Spring Boot R2DBC + H2 example: CRUD Application](http://www.bezkoder.com/spring-boot-r2dbc-h2)
 * [Bootstrap](http://getbootstrap.com/docs/5.2/getting-started/introduction)

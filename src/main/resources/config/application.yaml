@@ -17,6 +17,11 @@ spring:
       resourceserver:
         jwt:
           public-key-location: classpath:jwt/publicKey.pem
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:data/schema.sql
+      data-locations: classpath:data/data.sql
   web:
     locale: en_UK
     locale-resolver: accept-header
